@@ -13,7 +13,7 @@ import environment from 'platform/utilities/environment';
 import { VA_FORM_IDS } from 'platform/forms/constants';
 
 import manifest from '../manifest.json';
-import { submitForm, transformForSubmit } from './submitForm';
+import { submit, transformForSubmit } from './submitForm';
 
 const formConfig = {
   rootUrl: manifest.rootUrl,
@@ -22,7 +22,7 @@ const formConfig = {
   trackingPrefix: 'health-care-questionnaire',
   introduction: IntroductionPage,
   confirmation: ConfirmationPage,
-  submit: submitForm,
+  submit,
   transformForSubmit,
   errorText: 'it brrrroke....NEED CONTENT',
   formId: VA_FORM_IDS.FORM_HC_QSTNR,
