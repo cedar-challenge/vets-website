@@ -25,7 +25,6 @@ const formConfig = {
   confirmation: ConfirmationPage,
   submit,
   transformForSubmit,
-  errorText: 'it brrrroke....NEED CONTENT',
   formId: VA_FORM_IDS.FORM_HC_QSTNR,
   saveInProgress: {
     resumeOnly: true,
