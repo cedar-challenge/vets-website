@@ -203,6 +203,28 @@ const createFakeReasonForVisitStore = ({ reason = '' }) => {
   };
 };
 
+const createFakeHiddenFieldStore = ({
+  appointmentId = '',
+  questionnaireId = '',
+}) => {
+  return {
+    getState: () => ({
+      questionnaireData: {
+        context: {
+          questionnaire: {
+            id: questionnaireId,
+          },
+          appointment: {
+            id: appointmentId,
+          },
+        },
+      },
+    }),
+    subscribe: () => {},
+    dispatch: () => {},
+  };
+};
+
 const createFakeConfirmationStore = ({ hasData }) => {
   return {
     getState: () => {
@@ -294,4 +316,5 @@ export {
   createFakeConfirmationStore,
   createFakeIntroductionPageStore,
   createFakeStopCodeStore,
+  createFakeHiddenFieldStore,
 };
