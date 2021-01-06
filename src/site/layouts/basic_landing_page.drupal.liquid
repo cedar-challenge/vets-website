@@ -49,29 +49,33 @@
           <div class="medium-screen:vads-u-border-bottom--2px vads-u-border-color--gray-light medium-screen:vads-u-margin-bottom--3">
             {% include "src/site/includes/support_resources_search_bar.drupal.liquid" %}
           </div>
-
-          <!-- Content blocks -->
-          {% for block in fieldContentBlock %}
-            {% assign bundleComponent = "src/site/paragraphs/" | append: block.entity.entityBundle %}
-            {% assign bundleComponentWithExtension = bundleComponent | append: ".drupal.liquid" %}
-            {% include {{ bundleComponentWithExtension }} with entity = block.entity %}
-          {% endfor %}
-
-          <!-- Repeated buttons -->
-          {% if fieldButtonsRepeat %}
-            <div class="vads-u-margin-top--3">
-              {% for fieldButton in fieldButtons %}
-                {% include "src/site/paragraphs/button.drupal.liquid" with entity = fieldButton.entity %}
-              {% endfor %}
-            </div>
-          {% endif %}
         </article>
+      </div>
 
-        <!-- Last Updated -->
-        <div class="last-updated usa-content">
-          Last updated: <time
-            datetime="{{ changed | dateFromUnix: 'YYYY-MM-DD'}}">{{ changed | humanizeTimestamp }}</time>
-        </div>
+      <!-- Content blocks -->
+      <article class="vads-u-padding-bottom--4">
+        {% for block in fieldContentBlock %}
+          {% assign bundleComponent = "src/site/paragraphs/" | append: block.entity.entityBundle %}
+          {% assign bundleComponentWithExtension = bundleComponent | append: ".drupal.liquid" %}
+          {% include {{ bundleComponentWithExtension }} with entity = block.entity %}
+        {% endfor %}
+      </article>
+
+      <div class="usa-width-three-fourths">
+        <!-- Repeated buttons -->
+        {% if fieldButtonsRepeat %}
+          <div class="vads-u-margin-top--3">
+            {% for fieldButton in fieldButtons %}
+              {% include "src/site/paragraphs/button.drupal.liquid" with entity = fieldButton.entity %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Last Updated -->
+      <div class="last-updated usa-content">
+        Last updated: <time
+          datetime="{{ changed | dateFromUnix: 'YYYY-MM-DD'}}">{{ changed | humanizeTimestamp }}</time>
       </div>
     </div>
   </main>
